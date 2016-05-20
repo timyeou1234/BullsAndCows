@@ -49,6 +49,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     func generateAnswear() {
         // TODO: 2. generate your answear here
+        // You need to generate 4 random and non-repeating digits.
+        // Some hints: http://stackoverflow.com/q/24007129/938380
     }
     
     @IBAction func guess(sender: AnyObject) {
@@ -59,14 +61,15 @@ class ViewController: UIViewController, UITableViewDataSource {
             self.presentViewController(alert, animated: true, completion: nil)
             return
         }
-        // TODO: 3. cast the guessString to the data type you want to use and judge the guess
+        // TODO: 3. convert guessString to the data type you want to use and judge the guess
+        
         
         // TODO: 4. update the hint
         let hint = "1A2B"
         
         hintArray.append((guessString!, hint))
         
-        // TODO: 5. update correct
+        // TODO: 5. update the constant "correct" if the guess is correct
         let correct = false
         if correct {
             let alert = UIAlertController(title: "Wow! You are awesome!", message: nil, preferredStyle: .Alert)
@@ -78,7 +81,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
     }
     @IBAction func showAnswear(sender: AnyObject) {
-        // TODO: 6. cast your answear to string and display it if it's necessary
+        // TODO: 6. convert your answear to string(if it's necessary) and display it
         answearLabel.text = "\(answear)"
     }
     

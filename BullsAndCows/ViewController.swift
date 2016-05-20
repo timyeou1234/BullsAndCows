@@ -37,10 +37,10 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         setGame()
-        generateAnswear()
     }
 
     func setGame() {
+        generateAnswear()
         remainingTime = 9
         hintArray.removeAll()
         answearLabel.text = nil

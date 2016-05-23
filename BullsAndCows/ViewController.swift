@@ -33,6 +33,10 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     // TODO: 1. decide the data type you want to use to store the answear
     var answear: UInt16!
+    var ansArray:[Int] = []
+    var ansString:String  = ""
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +55,17 @@ class ViewController: UIViewController, UITableViewDataSource {
         // TODO: 2. generate your answear here
         // You need to generate 4 random and non-repeating digits.
         // Some hints: http://stackoverflow.com/q/24007129/938380
+        ansArray = []
+        ansString = ""
+        var i = 0
+        while i < 4 {
+            ansArray.append(Int(arc4random_uniform(9)))
+            if ansArray.count == Set(ansArray).count{
+                i += 1
+            }else{
+                ansArray.removeLast()
+            }
+        }
     }
     
     @IBAction func guess(sender: AnyObject) {
@@ -63,14 +78,48 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
         // TODO: 3. convert guessString to the data type you want to use and judge the guess
         
+        var guessInt = Int(guessString!)
+        var guessIntArray:[Int] = []
+        for i in (0...3).reverse(){
+            guessIntArray.append(guessInt! / Int(pow(Double(10) , Double(i))))
+            guessInt = guessInt! % Int(pow(Double(10) , Double(i)))
+        }
         
         // TODO: 4. update the hint
-        let hint = "1A2B"
+        var numbersOfA = 0
+        var numbersOfB = 0
+        var y = 0
+        for i in 0...3{
+            while y < 4 {
+                if ansArray[i] == guessIntArray[y]{
+                    numbersOfB += 1
+                }
+                y += 1
+            }
+            y = 0
+        }
         
-        hintArray.append((guessString!, hint))
+        if numbersOfB > 0{
+            for i in 0...3{
+                if ansArray[i] == guessIntArray[i]{
+                numbersOfA += 1
+                numbersOfB -= 1
+                }
+            }
+        }
+        var gusPrint:String = ""
+        for i in 0...3{
+             gusPrint += "\(String(guessIntArray[i]))"
+        }
+        let hint = "\(String(numbersOfA))A\(Int(numbersOfB))B"
+        
+        hintArray.append((gusPrint, hint))
         
         // TODO: 5. update the constant "correct" if the guess is correct
-        let correct = false
+        var correct = false
+        if numbersOfA == 4{
+            correct = true
+        }
         if correct {
             let alert = UIAlertController(title: "Wow! You are awesome!", message: nil, preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
@@ -82,8 +131,16 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     @IBAction func showAnswear(sender: AnyObject) {
         // TODO: 6. convert your answear to string(if it's necessary) and display it
-        answearLabel.text = "\(answear)"
+        if ansString == ""{
+            for i in 0...3{
+                ansString += "\(String(ansArray[i]))"
+                answearLabel.text = ansString
+            }
+        }else {
+            self.answearLabel.text = "Wrong at 140"
+        }
     }
+    
     
     @IBAction func playAgain(sender: AnyObject) {
         setGame()

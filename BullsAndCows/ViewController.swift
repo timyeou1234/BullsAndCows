@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     var answear: UInt16!
     var ansArray:[Int] = []
     var ansString:String  = ""
-    
+    //以陣列作為答案型別
     
     
     override func viewDidLoad() {
@@ -66,6 +66,7 @@ class ViewController: UIViewController, UITableViewDataSource {
                 ansArray.removeLast()
             }
         }
+        //產生一個陣列當中有四個不重複0~9隨機數字作為答案
     }
     
     @IBAction func guess(sender: AnyObject) {
@@ -84,6 +85,7 @@ class ViewController: UIViewController, UITableViewDataSource {
             guessIntArray.append(guessInt! / Int(pow(Double(10) , Double(i))))
             guessInt = guessInt! % Int(pow(Double(10) , Double(i)))
         }
+        //將輸入的字串轉為四位數的Int，利用餘數方法得到一個使用者輸入數字的陣列
         
         // TODO: 4. update the hint
         var numbersOfA = 0
@@ -107,6 +109,8 @@ class ViewController: UIViewController, UITableViewDataSource {
                 }
             }
         }
+        
+        //先用兩層迴圈比對兩陣列是否有重複的數字，若有，比對兩陣列是否由位置和數字皆一樣的數字
         var gusPrint:String = ""
         for i in 0...3{
              gusPrint += "\(String(guessIntArray[i]))"
@@ -120,6 +124,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         if numbersOfA == 4{
             correct = true
         }
+        //若4A則代表完全猜對
         if correct {
             let alert = UIAlertController(title: "Wow! You are awesome!", message: nil, preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
@@ -139,6 +144,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         }else {
             self.answearLabel.text = "Wrong at 140"
         }
+        //將每個元素分開存進AnsString讓他能順利印出來
     }
     
     

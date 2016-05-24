@@ -57,16 +57,26 @@ class ViewController: UIViewController, UITableViewDataSource {
         // Some hints: http://stackoverflow.com/q/24007129/938380
         ansArray = []
         ansString = ""
-        var i = 0
-        while i < 4 {
-            ansArray.append(Int(arc4random_uniform(9)))
-            if ansArray.count == Set(ansArray).count{
-                i += 1
-            }else{
-                ansArray.removeLast()
-            }
-        }
+        var i:UInt32 = 0
+//        while i < 4 {
+//            ansArray.append(Int(arc4random_uniform(9)))
+//            if ansArray.count == Set(ansArray).count{
+//                i += 1
+//            }else{
+//                ansArray.removeLast()
+//            }
+//        }
         //產生一個陣列當中有四個不重複0~9隨機數字作為答案
+        var ansArrayFrom = [0,1,2,3,4,5,6,7,8,9]
+        var count:UInt32 = 0
+        var pickNum = 0
+        while i < 4 {
+            count = 9 - i
+            pickNum = Int(arc4random_uniform(count))
+            ansArray.append(ansArrayFrom[pickNum])
+            ansArrayFrom.removeAtIndex(pickNum)
+            i += 1
+        }
     }
     
     @IBAction func guess(sender: AnyObject) {

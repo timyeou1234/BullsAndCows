@@ -81,6 +81,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     @IBAction func guess(sender: AnyObject) {
         let guessString = guessTextField.text
+        guessTextField.text = ""
         guard guessString?.characters.count == 4 else {
             let alert = UIAlertController(title: "you should input 4 digits to guess!", message: nil, preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
@@ -89,6 +90,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
         // TODO: 3. convert guessString to the data type you want to use and judge the guess
         
+        
+        
         var guessInt = Int(guessString!)
         var guessIntArray:[Int] = []
         for i in (0...3).reverse(){
@@ -96,6 +99,14 @@ class ViewController: UIViewController, UITableViewDataSource {
             guessInt = guessInt! % Int(pow(Double(10) , Double(i)))
         }
         //將輸入的字串轉為四位數的Int，利用餘數方法得到一個使用者輸入數字的陣列
+        
+        if guessIntArray.count != Set(guessIntArray).count{
+            let alert = UIAlertController(title: "you should input 4 Different digits to guess!", message: nil, preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+
+        }
         
         // TODO: 4. update the hint
         var numbersOfA = 0
@@ -142,6 +153,13 @@ class ViewController: UIViewController, UITableViewDataSource {
             guessButton.enabled = false
         } else {
             remainingTime! -= 1
+            switch remainingTime{
+                case 4...6:
+                    remainingTimeLabel.textColor = UIColor.yellowColor()
+                case 0...3:
+                    remainingTimeLabel.textColor = UIColor.redColor()
+                default: break
+            }
         }
     }
     @IBAction func showAnswear(sender: AnyObject) {

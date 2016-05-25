@@ -169,8 +169,6 @@ class ViewController: UIViewController, UITableViewDataSource {
                 ansString += "\(String(ansArray[i]))"
                 answearLabel.text = ansString
             }
-        }else {
-            self.answearLabel.text = "Wrong at 140"
         }
         //將每個元素分開存進AnsString讓他能順利印出來
     }

@@ -158,7 +158,8 @@ class ViewController: UIViewController, UITableViewDataSource {
                     remainingTimeLabel.textColor = UIColor.yellowColor()
                 case 0...3:
                     remainingTimeLabel.textColor = UIColor.redColor()
-                default: break
+                default:
+                    break
             }
         }
     }
@@ -176,6 +177,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     @IBAction func playAgain(sender: AnyObject) {
         setGame()
+        remainingTimeLabel.textColor = UIColor.blackColor()
     }
     
     // MARK: TableView

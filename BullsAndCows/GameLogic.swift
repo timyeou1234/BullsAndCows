@@ -12,12 +12,12 @@ class GameLogic{
     var ansArray:[Int] = []
     var correct:Bool
     var remainingTime:Int
-    var guessRepeat:Bool
+    
     
     init(){
-        self.guessRepeat = false
         self.correct = false
         self.remainingTime = 9
+        
         var i:UInt32 = 0
         var ansArrayFrom = [0,1,2,3,4,5,6,7,8,9]
         var count:UInt32 = 0
@@ -32,6 +32,14 @@ class GameLogic{
         // generate ansArray
     }
     
+    func guessCharLengthEqualToFour(guessString:String?) -> Bool{
+        return guessString?.characters.count == 4
+    }
+    
+    func guessRepeat(guessString:String?) -> Bool {
+        return (guessString?.characters.count)! != Set(guessString!.characters).count
+    }
+    
     func guess(guessString:String?) -> String{
         var guessInt = Int(guessString!)
         var guessIntArray:[Int] = []
@@ -39,7 +47,6 @@ class GameLogic{
             guessIntArray.append(guessInt! / Int(pow(Double(10) , Double(i))))
             guessInt = guessInt! % Int(pow(Double(10) , Double(i)))
         }
-        self.guessRepeat = guessIntArray.count != Set(guessIntArray).count
         //將輸入的字串轉為四位數的Int，利用餘數方法得到一個使用者輸入數字的陣列
         // TODO: 4. update the hint
         var numbersOfA = 0

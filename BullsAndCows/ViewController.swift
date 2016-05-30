@@ -161,6 +161,7 @@ class ViewController: UIViewController, UITableViewDataSource {
             }
         }
     }
+    
     @IBAction func showAnswear(sender: AnyObject) {
         // TODO: 6. convert your answear to string(if it's necessary) and display it
         if ansString == ""{

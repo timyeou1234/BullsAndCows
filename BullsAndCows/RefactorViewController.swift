@@ -38,7 +38,7 @@ class RefactorViewController: UIViewController, UITableViewDataSource {
     @IBAction func guess(sender: AnyObject) {
         let guessString = guessTextField.text
         guessTextField.text = ""
-        guard guessString?.characters.count == 4 else {
+        guard game.guessCharLengthEqualToFour(guessString) else {
             let alert = UIAlertController(title: "you should input 4 digits to guess!", message: nil, preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -47,7 +47,7 @@ class RefactorViewController: UIViewController, UITableViewDataSource {
         
         let ansAB = game.guess(guessString)
         
-        if game.guessRepeat{
+        if game.guessRepeat(guessString){
             let alert = UIAlertController(title: "you should input 4 Different digits to guess!", message: nil, preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -76,6 +76,7 @@ class RefactorViewController: UIViewController, UITableViewDataSource {
             }
         }
     }
+    
     @IBAction func showAnswear(sender: AnyObject) {
         answearLabel.text = game.showAnsString()
     }

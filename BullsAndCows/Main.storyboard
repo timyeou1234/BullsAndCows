@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Refactor View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BullsAndCows" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RefactorViewController" customModule="BullsAndCows" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -77,8 +77,8 @@
                     </view>
                     <connections>
                         <outlet property="answearLabel" destination="Gz9-wd-nWV" id="iEn-zI-zOe"/>
-                        <outlet property="guessButton" destination="oP5-BX-PpI" id="Enn-bW-HBS"/>
-                        <outlet property="guessTextField" destination="WgZ-M0-1U5" id="BIE-5n-FTg"/>
+                        <outlet property="guessButton" destination="oP5-BX-PpI" id="QFS-lS-kz9"/>
+                        <outlet property="guessTextField" destination="WgZ-M0-1U5" id="zs1-BW-NXR"/>
                         <outlet property="remainingTimeLabel" destination="hgW-0Y-SF6" id="Yyx-tQ-7V0"/>
                         <outlet property="tableView" destination="yF4-rL-17V" id="JqI-ru-Mcq"/>
                     </connections>

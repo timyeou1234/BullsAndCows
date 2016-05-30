@@ -90,8 +90,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
         // TODO: 3. convert guessString to the data type you want to use and judge the guess
         
-        
-        
         var guessInt = Int(guessString!)
         var guessIntArray:[Int] = []
         for i in (0...3).reverse(){

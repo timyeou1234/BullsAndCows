@@ -9,6 +9,10 @@
 import Foundation
 
 protocol BullsAndCowsGameLogic {
+    var ansArray:[Int] {get set}
+    var ansString:String {get set}
+    var remainingTime: UInt8! {get set}
+    
     func setGame()
     func generateAnswear()
     func guessAnswearReturnAnsAB(guessString:String) -> String

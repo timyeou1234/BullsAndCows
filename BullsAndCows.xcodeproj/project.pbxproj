@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B8B012E1CFD67B70088B681 /* GameLogicProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B012D1CFD67B70088B681 /* GameLogicProtocol.swift */; };
 		D355A4F81CEDF6B40091EC95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D355A4F71CEDF6B40091EC95 /* AppDelegate.swift */; };
 		D355A4FF1CEDF6B40091EC95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D355A4FE1CEDF6B40091EC95 /* Assets.xcassets */; };
 		D355A5021CEDF6B40091EC95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D355A5001CEDF6B40091EC95 /* LaunchScreen.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B8B012D1CFD67B70088B681 /* GameLogicProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLogicProtocol.swift; sourceTree = "<group>"; };
 		D355A4F41CEDF6B40091EC95 /* BullsAndCows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsAndCows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D355A4F71CEDF6B40091EC95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D355A4FE1CEDF6B40091EC95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				D355A4F71CEDF6B40091EC95 /* AppDelegate.swift */,
 				D355A5091CEDF6C60091EC95 /* Main.storyboard */,
 				D355A4FE1CEDF6B40091EC95 /* Assets.xcassets */,
+				6B8B012D1CFD67B70088B681 /* GameLogicProtocol.swift */,
 				D355A50B1CEDF6EB0091EC95 /* ViewController.swift */,
 				D355A5001CEDF6B40091EC95 /* LaunchScreen.storyboard */,
 				D355A5031CEDF6B40091EC95 /* Info.plist */,
@@ -136,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D355A50C1CEDF6EB0091EC95 /* ViewController.swift in Sources */,
+				6B8B012E1CFD67B70088B681 /* GameLogicProtocol.swift in Sources */,
 				D355A4F81CEDF6B40091EC95 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +284,7 @@
 				D355A5081CEDF6B40091EC95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -135,8 +135,8 @@ class ViewController: UIViewController, UITableViewDataSource {
              gusPrint += "\(String(guessIntArray[i]))"
         }
         let hint = "\(String(numbersOfA))A\(Int(numbersOfB))B"
-        
-        hintArray.append((gusPrint, hint))
+        hintArray.insert((gusPrint, hint), atIndex: 0)
+//        hintArray.append((gusPrint, hint))
         
         // TODO: 5. update the constant "correct" if the guess is correct
         var correct = false

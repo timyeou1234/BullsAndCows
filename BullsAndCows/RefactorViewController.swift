@@ -55,7 +55,8 @@ class RefactorViewController: UIViewController, UITableViewDataSource {
             
         }
     
-        hintArray.append((guessString!, ansAB))
+//        hintArray.append((guessString!, ansAB))
+        hintArray.insert((guessString!, ansAB), atIndex: 0)
         
         if game.correct {
             let alert = UIAlertController(title: "Wow! You are awesome!", message: nil, preferredStyle: .Alert)
